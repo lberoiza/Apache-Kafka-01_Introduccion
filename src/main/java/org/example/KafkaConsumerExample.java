@@ -29,10 +29,9 @@ public class KafkaConsumerExample {
 
 
   public static void main(String[] args) {
-    String topicName = "test-topic-2";
 
     try (KafkaConsumer<String, String> consumer = getKafkaConsumer()) {
-      consumer.subscribe(Collections.singletonList(topicName));
+      consumer.subscribe(Collections.singletonList(KafkaProducerExample.TOPIC_NAME));
 
       while (true) {
         ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(10));
