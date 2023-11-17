@@ -6,7 +6,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 public class KafkaProducerExample {
 
-  public static final String TOPIC_NAME = "test-topic-2";
+  public static final String TOPIC_NAME = "test-topic";
 
   public static void main(String[] args) {
     System.out.println("Starting Kafka Producer Example");
