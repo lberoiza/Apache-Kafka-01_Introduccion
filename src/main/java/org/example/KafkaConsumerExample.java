@@ -34,14 +34,16 @@ public class KafkaConsumerExample {
       consumer.subscribe(Collections.singletonList(KafkaProducerExample.TOPIC_NAME));
 
       while (true) {
-        ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(10));
+        ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofSeconds(10));
 
-        for (ConsumerRecord<String, String> record : records) {
-          System.out.print("Topic: " + record.topic() + ", ");
-          System.out.print("Partition: " + record.partition() + ",");
+        for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
 
-          System.out.print("Key:" + record.key() + ", ");
-          System.out.println("Value: " + record.value() + ", ");
+          System.out.print("Topic: " + consumerRecord.topic() + ", ");
+          System.out.print("Partition: " + consumerRecord.partition() + ", ");
+          System.out.print("Offset: " + consumerRecord.offset() + ", ");
+
+          System.out.print("Key:" + consumerRecord.key() + ", ");
+          System.out.println("Value: " + consumerRecord.value());
         }
       }
     } catch (Exception e) {
