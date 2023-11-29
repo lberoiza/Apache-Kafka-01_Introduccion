@@ -4,6 +4,8 @@ import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 import java.util.Collections;
@@ -11,6 +13,9 @@ import java.util.Properties;
 
 
 public class KafkaConsumerExample {
+
+  private static final Logger log = LoggerFactory.getLogger(KafkaConsumerExample.class);
+
 
   private static KafkaConsumer<String, String> getKafkaConsumer() {
     Properties props = new Properties();
@@ -38,12 +43,10 @@ public class KafkaConsumerExample {
 
         for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
 
-          System.out.print("Topic: " + consumerRecord.topic() + ", ");
-          System.out.print("Partition: " + consumerRecord.partition() + ", ");
-          System.out.print("Offset: " + consumerRecord.offset() + ", ");
+          log.info("Topic: {}, Partition: {}, Offset: {}, Key: {}, Value: {}",
+              consumerRecord.topic(), consumerRecord.partition(), consumerRecord.offset(),
+              consumerRecord.key(), consumerRecord.value());
 
-          System.out.print("Key:" + consumerRecord.key() + ", ");
-          System.out.println("Value: " + consumerRecord.value());
         }
       }
     } catch (Exception e) {
