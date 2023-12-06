@@ -1,7 +1,6 @@
 package org.example.properties;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
 
 import java.util.Properties;
 
