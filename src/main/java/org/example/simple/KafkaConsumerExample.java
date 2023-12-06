@@ -25,11 +25,9 @@ public class KafkaConsumerExample {
         ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofSeconds(10));
 
         for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
-
           log.info("Topic: {}, Partition: {}, Offset: {}, Key: {}, Value: {}",
               consumerRecord.topic(), consumerRecord.partition(), consumerRecord.offset(),
               consumerRecord.key(), consumerRecord.value());
-
         }
       }
     } catch (Exception e) {
