@@ -4,7 +4,8 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.errors.WakeupException;
-import org.example.KafkaProducerExample;
+import org.example.properties.KafkaProducerProperties;
+import org.example.simple.KafkaProducerExample;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,7 +26,7 @@ public class KafkaConsumerMultiThread extends Thread {
   @Override
   public void run() {
     try {
-      consumer.subscribe(List.of(KafkaProducerExample.TOPIC_NAME));
+      consumer.subscribe(List.of(KafkaProducerProperties.TOPIC_NAME));
       while (!closed.get()) {
         ConsumerRecords<String, String> records = consumer.poll(Duration.ofMillis(1000));
         for (ConsumerRecord<String, String> record : records) {

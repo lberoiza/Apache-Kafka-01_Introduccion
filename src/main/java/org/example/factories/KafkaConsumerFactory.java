@@ -13,4 +13,10 @@ public class KafkaConsumerFactory {
     return new KafkaConsumer<>(props);
   }
 
+  public static KafkaConsumer<String, String> getKafkaConsumerWithTransaction() {
+    Properties props = KafkaProducerProperties.getProperties();
+    props.put("isolation.level", "read_committed");
+    return new KafkaConsumer<>(props);
+  }
+
 }

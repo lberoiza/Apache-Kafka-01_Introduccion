@@ -7,6 +7,9 @@ import java.util.Properties;
 
 public class KafkaProducerProperties {
 
+  public static final String TOPIC_NAME = "test-topic";
+
+
   public static Properties getProperties() {
     Properties props = new Properties();
     props.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");

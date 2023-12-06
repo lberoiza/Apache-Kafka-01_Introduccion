@@ -3,11 +3,10 @@ package org.example.simple;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.example.factories.KafkaProducerFactory;
+import org.example.properties.KafkaProducerProperties;
 
 
 public class KafkaProducerExample {
-
-  public static final String TOPIC_NAME = "test-topic";
 
   public static void main(String[] args) {
     System.out.println("Starting Kafka Producer Example");
@@ -18,7 +17,7 @@ public class KafkaProducerExample {
 
     System.out.println("generate Record");
     ProducerRecord<String, String> recordToSend = new ProducerRecord<>(
-        KafkaProducerExample.TOPIC_NAME,
+        KafkaProducerProperties.TOPIC_NAME,
         partition,
         key,
         value
