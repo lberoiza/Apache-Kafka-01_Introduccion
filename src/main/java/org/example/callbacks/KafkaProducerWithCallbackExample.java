@@ -14,10 +14,12 @@ public class KafkaProducerWithCallbackExample {
     String value = "testValue";
     final ProducerRecord<String, String> record = new
         ProducerRecord<>(topic, key, value);
-    producer.send(record, (recordMetadata, e) -> {
-      if (e != null) {
-        System.out.println("Send failed for record: " + e.getMessage());
+    producer.send(record, (recordMetadata, exception) -> {
+      if (exception != null) {
+        System.out.println("Send failed for record: " + exception.getMessage());
       }
+      System.out.println("Record sent to partition " + recordMetadata.partition() +
+          " with offset " + recordMetadata.offset());
     });
 
     producer.close();
