@@ -1,7 +1,7 @@
-package org.example.factories;
+package lab.kafka.factories;
 
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import properties.KafkaConsumerProperties;
+import lab.properties.KafkaConsumerProperties;
 
 import java.util.Properties;
 

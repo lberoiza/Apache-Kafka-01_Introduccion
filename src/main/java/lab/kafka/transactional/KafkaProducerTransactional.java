@@ -1,9 +1,9 @@
-package org.example.transactional;
+package lab.kafka.transactional;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.example.factories.KafkaProducerFactory;
-import properties.KafkaProducerProperties;
+import lab.kafka.factories.KafkaProducerFactory;
+import lab.properties.KafkaProducerProperties;
 import org.slf4j.Logger;
 
 public class KafkaProducerTransactional {

@@ -1,9 +1,9 @@
-package org.example.simple;
+package lab.kafka.simple;
 
+import lab.kafka.factories.KafkaProducerFactory;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.example.factories.KafkaProducerFactory;
-import properties.KafkaProducerProperties;
+import lab.properties.KafkaProducerProperties;
 
 
 public class KafkaProducerExample {

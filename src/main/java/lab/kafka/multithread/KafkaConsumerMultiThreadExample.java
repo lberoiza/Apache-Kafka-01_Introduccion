@@ -1,6 +1,6 @@
-package org.example.multithread;
+package lab.kafka.multithread;
 
-import org.example.factories.KafkaConsumerFactory;
+import lab.kafka.factories.KafkaConsumerFactory;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;

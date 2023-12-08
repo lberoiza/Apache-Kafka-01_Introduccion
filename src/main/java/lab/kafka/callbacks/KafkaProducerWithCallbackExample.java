@@ -1,8 +1,8 @@
-package org.example.callbacks;
+package lab.kafka.callbacks;
 
+import lab.kafka.factories.KafkaProducerFactory;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.example.factories.KafkaProducerFactory;
 
 
 public class KafkaProducerWithCallbackExample {

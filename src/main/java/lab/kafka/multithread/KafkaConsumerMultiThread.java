@@ -1,10 +1,10 @@
-package org.example.multithread;
+package lab.kafka.multithread;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.errors.WakeupException;
-import properties.KafkaProducerProperties;
+import lab.properties.KafkaProducerProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

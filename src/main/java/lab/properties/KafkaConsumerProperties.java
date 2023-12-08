@@ -1,4 +1,4 @@
-package properties;
+package lab.properties;
 
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 
