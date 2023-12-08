@@ -27,6 +27,7 @@ public class KafkaProducerFactory {
   public static KafkaProducer<String, String> getKafkaProducerWithTransaction(String transactionId){
     Properties props = KafkaProducerProperties.getProperties();
     props.put("acks", "all");
+    props.put("retries", 1);
     props.put("transactional.id", transactionId);
     return new KafkaProducer<>(props);
   }

@@ -20,15 +20,24 @@ public class KafkaProducerTransactional {
     long startTime = System.currentTimeMillis();
     producer.initTransactions();
     producer.beginTransaction();
-    for(long i =0; i < nrMessages; i++) {
-      ProducerRecord<String, String> recordToSend = new ProducerRecord<>(
-          KafkaProducerProperties.TOPIC_NAME,
-          key + i,
-          value + i
-      );
-      producer.send(recordToSend);
+
+    try {
+      for(long i =0; i < nrMessages; i++) {
+        ProducerRecord<String, String> recordToSend = new ProducerRecord<>(
+            KafkaProducerProperties.TOPIC_NAME,
+            key + i,
+            value + i
+        );
+        producer.send(recordToSend);
+//        if(i == 500000L) {
+//          throw new Exception("Custom Error sending message nr: " + i);
+//        }
+      }
+      producer.commitTransaction();
+    } catch (Exception e) {
+      logger.error("Error sending messages: {}", e.getMessage());
+      producer.abortTransaction();
     }
-    producer.commitTransaction();
     producer.flush();
     producer.close();
     logger.info("Time to send {} messages: {} ms", nrMessages, System.currentTimeMillis() - startTime);
