@@ -3,7 +3,7 @@ package org.example.simple;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.example.factories.KafkaProducerFactory;
-import org.example.properties.KafkaProducerProperties;
+import properties.KafkaProducerProperties;
 
 
 public class KafkaProducerExample {
